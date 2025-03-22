@@ -17,8 +17,8 @@ A simple REST API built with Golang, Gin framework, and SQLite. This API generat
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/your-username/user-data-api.git
-cd user-data-api
+git clone https://gitlab.com/aminelch/go-user-generator.git
+cd go-user-generator
 ```
 
 Initialize and download dependencies:
