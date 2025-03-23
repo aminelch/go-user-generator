@@ -1,4 +1,4 @@
-module github.com/aminelch/random-fake-users
+module gitlab.com/aminelch/go-user-generator
 
 go 1.23.4
 
