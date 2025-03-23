@@ -6,10 +6,11 @@ stages:
 
 variables:
   GO_VERSION: "1.23.4-alpine"
+  CGO_ENABLED: "1"
 
 lint:
   stage: lint
-  image: golangci/golangci-lint:v1.55.2-alpine
+  image: golangci/golangci-lint:v1.23.6-alpine
   script:
     - golangci-lint run --timeout=5m
   allow_failure: true
@@ -23,6 +24,8 @@ test:
   artifacts:
     paths: 
       - coverage.out
+  needs: 
+    - lint
 
 build:
   stage: build
@@ -33,6 +36,8 @@ build:
   artifacts:
     paths:
       - api
+  needs: 
+    - lint
 
 deploy-on-render:
   stage: deploy
@@ -40,6 +45,8 @@ deploy-on-render:
   script:
     - echo "Launch Render deployment..."
     - curl https://api.render.com/deploy/$RENDER_SERVICE_NAME?key=$RUNDER_SERVICE_KEY
+  needs: 
+    - build
   when: manual
   only:
     - main
