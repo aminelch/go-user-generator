@@ -1,5 +1,12 @@
 # go-user-generator API
 
+![License](https://img.shields.io/gitlab/license/aminelch/go-user-generator?color=lightblue&style=for-the-badge)
+![GO version](https://img.shields.io/badge/version-1.23.4-blue?logo=go&style=for-the-badge)
+![Build Status](https://img.shields.io/gitlab/pipeline/aminelch/go-user-generator/main?label=build&style=for-the-badge)
+![Test Status](https://img.shields.io/gitlab/pipeline/aminelch/go-user-generator/main?label=test&style=for-the-badge)
+![Lint Status](https://img.shields.io/gitlab/pipeline/aminelch/go-user-generator/main?label=lint&style=for-the-badge)
+[![Lint Status](https://img.shields.io/badge/live-demo-darkred?style=for-the-badge)](https://go-user-generator.onrender.com)
+
 A simple REST API built with Golang, Gin framework, and SQLite. This API generates random user data and provides a health check endpoint.
 
 ## Features

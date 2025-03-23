@@ -1,0 +1,82 @@
+{"level":"info","msg":"Starting API...","time":"2025-03-10T23:23:20+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-10T23:23:20+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-10T23:23:20+01:00"}
+{"level":"info","msg":"Received request on /health","time":"2025-03-10T23:23:39+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-10T23:23:43+01:00"}
+{"level":"info","msg":"Selected user: Emma Wilson (emma@example.com)","time":"2025-03-10T23:23:43+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-10T23:23:45+01:00"}
+{"level":"info","msg":"Selected user: Hank Moody (hank@example.com)","time":"2025-03-10T23:23:45+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-10T23:23:46+01:00"}
+{"level":"info","msg":"Selected user: Frank Martin (frank@example.com)","time":"2025-03-10T23:23:46+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-10T23:28:43+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-10T23:28:43+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-10T23:28:43+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-22T01:31:37+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-22T01:31:37+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-22T01:31:37+01:00"}
+{"level":"info","msg":"Received request on /health","time":"2025-03-22T01:32:11+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:32:17+01:00"}
+{"level":"info","msg":"Selected user: Charlie Brown (charlie@example.com)","time":"2025-03-22T01:32:17+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:32:20+01:00"}
+{"level":"info","msg":"Selected user: Frank Martin (frank@example.com)","time":"2025-03-22T01:32:20+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-22T01:51:50+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-22T01:51:50+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-22T01:51:50+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:51:55+01:00"}
+{"level":"info","msg":"Selected user: Alice Johnson (alice@example.com)","time":"2025-03-22T01:51:55+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:51:57+01:00"}
+{"level":"info","msg":"Selected user: Ivy Adams (ivy@example.com)","time":"2025-03-22T01:51:57+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:51:58+01:00"}
+{"level":"info","msg":"Selected user: Alice Johnson (alice@example.com)","time":"2025-03-22T01:51:58+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:51:59+01:00"}
+{"level":"info","msg":"Selected user: Alice Johnson (alice@example.com)","time":"2025-03-22T01:51:59+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:00+01:00"}
+{"level":"info","msg":"Selected user: Alice Johnson (alice@example.com)","time":"2025-03-22T01:52:00+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:01+01:00"}
+{"level":"info","msg":"Selected user: Charlie Brown (charlie@example.com)","time":"2025-03-22T01:52:01+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:03+01:00"}
+{"level":"info","msg":"Selected user: Alice Johnson (alice@example.com)","time":"2025-03-22T01:52:03+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:03+01:00"}
+{"level":"info","msg":"Selected user: Bob Smith (bob@example.com)","time":"2025-03-22T01:52:03+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:04+01:00"}
+{"level":"info","msg":"Selected user: Ivy Adams (ivy@example.com)","time":"2025-03-22T01:52:04+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:05+01:00"}
+{"level":"info","msg":"Selected user: Ivy Adams (ivy@example.com)","time":"2025-03-22T01:52:05+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:06+01:00"}
+{"level":"info","msg":"Selected user: Ivy Adams (ivy@example.com)","time":"2025-03-22T01:52:06+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:52:07+01:00"}
+{"level":"info","msg":"Selected user: David Lee (david@example.com)","time":"2025-03-22T01:52:07+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-22T01:53:47+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-22T01:53:47+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-22T01:53:47+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:53:58+01:00"}
+{"level":"info","msg":"Selected user: Charlotte Moore (charlotte.moore@example.com)","time":"2025-03-22T01:53:58+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:54:02+01:00"}
+{"level":"info","msg":"Selected user: Noah Davis (noah.davis@example.com)","time":"2025-03-22T01:54:02+01:00"}
+{"level":"info","msg":"Received request on /health","time":"2025-03-22T01:54:16+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-22T01:56:33+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-22T01:56:33+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-22T01:56:33+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:40+01:00"}
+{"level":"info","msg":"Selected user: Lucas Jackson (lucas.jackson@example.com)","time":"2025-03-22T01:56:40+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:48+01:00"}
+{"level":"info","msg":"Selected user: Emma Wilson (emma.wilson@example.com)","time":"2025-03-22T01:56:48+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:49+01:00"}
+{"level":"info","msg":"Selected user: Lucas Jackson (lucas.jackson@example.com)","time":"2025-03-22T01:56:49+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:51+01:00"}
+{"level":"info","msg":"Selected user: Harper Robinson (harper.robinson@example.com)","time":"2025-03-22T01:56:51+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:52+01:00"}
+{"level":"info","msg":"Selected user: Evelyn Clark (evelyn.clark@example.com)","time":"2025-03-22T01:56:52+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:52+01:00"}
+{"level":"info","msg":"Selected user: Mia Taylor (mia.taylor@example.com)","time":"2025-03-22T01:56:52+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:56+01:00"}
+{"level":"info","msg":"Selected user: Abigail Young (abigail.young@example.com)","time":"2025-03-22T01:56:56+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:56:59+01:00"}
+{"level":"info","msg":"Selected user: Charlotte Moore (charlotte.moore@example.com)","time":"2025-03-22T01:56:59+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:57:00+01:00"}
+{"level":"info","msg":"Selected user: Sophia Martinez (sophia.martinez@example.com)","time":"2025-03-22T01:57:00+01:00"}
+{"level":"info","msg":"Received request on /generate","time":"2025-03-22T01:57:01+01:00"}
+{"level":"info","msg":"Selected user: Benjamin Thomas (benjamin.thomas@example.com)","time":"2025-03-22T01:57:01+01:00"}
+{"level":"info","msg":"Starting API...","time":"2025-03-22T02:05:06+01:00"}
+{"level":"info","msg":"Database migrated successfully!","time":"2025-03-22T02:05:06+01:00"}
+{"level":"info","msg":"Server running on port 8080","time":"2025-03-22T02:05:06+01:00"}
