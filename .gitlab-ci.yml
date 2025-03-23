@@ -5,7 +5,7 @@ deploy-on-render:
   stage: deploy
   image: curlimages/curl:latest
   script:
-    - echo "Triggering Render deployment..."
-    - curl -X POST "$RENDER_DEPLOY_HOOK"
+    - echo "Launch Render deployment..."
+    - curl https://api.render.com/deploy/$RENDER_SERVICE_NAME?key=$RUNDER_SERVICE_KEY
   only:
     - main
