@@ -13,6 +13,7 @@ func main() {
 
 	r := gin.Default()
 
+	r.GET("/", HomepageHandler)
 	r.GET("/health", HealthHandler)
 	r.GET("/generate", GenerateHandler)
 
