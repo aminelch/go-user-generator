@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"gitlab.com/aminelch/go-user-generator/models"
+	"math"
 	"math/rand"
 	"net/http"
 	"os"
@@ -13,6 +15,7 @@ var (
 	appDocumentation = getEnv("APP_DOC", "/docs")
 	appVersion       = getEnv("APP_VERSION", "1.0.0")
 	startTime        = time.Now()
+	dbPath           = getEnv("SQLITE_DB_PATH", "data.db")
 )
 
 func getEnv(key, defaultValue string) string {
@@ -30,14 +33,32 @@ func getHostname() string {
 }
 
 func HealthHandler(c *gin.Context) {
-	Logger.Info("Received request on /health")
-	c.JSON(http.StatusOK, gin.H{
-		"hostname":  getHostname(),
-		"uptime":    startTime.UTC().Format(time.RFC3339),
-		"status":    "OK",
-		"timestamp": time.Now().UTC().Format(time.RFC3339),
-		"version":   appVersion, // Version dynamique
-	})
+	sqliteStatus, dbSize := models.GetSQLiteStatus(dbPath)
+	uptime := math.Round(time.Since(startTime).Minutes()) // Uptime en minutes arrondi
+
+	globalStatus := "OK"
+	if sqliteStatus == "error" {
+		globalStatus = "DEGRADED"
+	} else if sqliteStatus == "unavailable" {
+		globalStatus = "UNAVAILABLE"
+	}
+
+	response := models.HealthResponse{
+		Hostname:  getHostname(),
+		Uptime:    uptime,
+		Status:    globalStatus,
+		Timestamp: time.Now().UTC().Format(time.RFC3339),
+		Version:   appVersion,
+		Dependencies: models.Dependencies{
+			SQLite: models.SQLiteInfo{
+				Status: sqliteStatus,
+				File:   dbPath,
+				SizeMB: dbSize,
+			},
+		},
+	}
+
+	c.JSON(http.StatusOK, response)
 }
 
 func GenerateHandler(c *gin.Context) {
