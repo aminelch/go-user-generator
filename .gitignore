@@ -1,3 +1,4 @@
 .env.local
 app.logcoverage.out
 .env
+app.log

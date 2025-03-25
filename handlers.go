@@ -9,8 +9,10 @@ import (
 )
 
 var (
-	startTime  = time.Now()
-	appVersion = getEnv("APP_VERSION", "1.0.0")
+	appName          = getEnv("APP_NAME", "user-generator-api")
+	appDocumentation = getEnv("APP_DOC", "/docs")
+	appVersion       = getEnv("APP_VERSION", "1.0.0")
+	startTime        = time.Now()
 )
 
 func getEnv(key, defaultValue string) string {
@@ -53,4 +55,14 @@ func GenerateHandler(c *gin.Context) {
 
 	Logger.Infof("Selected user: %s %s (%s)", randomUser.Uuid, randomUser.Name, randomUser.Email)
 	c.JSON(http.StatusOK, randomUser)
+}
+
+func HomepageHandler(c *gin.Context) {
+	Logger.Info("Received request on /")
+	c.JSON(http.StatusOK, gin.H{
+		"api":           appName,
+		"version":       appVersion,
+		"status":        "OK",
+		"documentation": appDocumentation,
+	})
 }
