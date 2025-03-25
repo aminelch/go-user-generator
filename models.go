@@ -1,7 +1,8 @@
 package main
 
 type User struct {
-    ID    uint   `json:"id" gorm:"primaryKey"`
-    Name  string `json:"name"`
-    Email string `json:"email"`
+	ID    uint   `json:"id" gorm:"primaryKey"`
+	Name  string `json:"name"`
+	Uuid  string `json:"uuid"`
+	Email string `json:"email"`
 }
