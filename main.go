@@ -16,9 +16,15 @@ func main() {
 	r.GET("/health", HealthHandler)
 	r.GET("/generate", GenerateHandler)
 
-	Logger.Info("Server running on port 8080")
-	err := r.Run(":8080")
+	port := os.Getenv("APP_PORT")
+	if port == "" {
+		port = "8080"
+	}
+	Logger.Info("Server running on port " + port)
+
+	err := r.Run(":" + port)
 	if err != nil {
+		Logger.Fatalf("Failed to start server")
 		os.Exit(2)
 	}
 }
