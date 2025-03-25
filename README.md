@@ -10,14 +10,21 @@
 A simple REST API built with Golang, Gin framework, and SQLite. This API generates random user data and provides a health check endpoint.
 
 ## Features
-- `/health`: Returns the API version.
-- `/generate`: Generates and returns a random user from the database.
-- SQLite database with migration and pre-seeded users.
-- Logging support for API requests and errors.
+1. `/health`:  Returns API status information including:
+- Current version (from APP_VERSION or default)
+- Server uptime (start timestamp in ISO 8601)
+- Hostname of the server 
+- Current timestamp 
+- Status indicator ("ok")
+
+2. `/generate`: Generates and returns a random user from the database.
+3. SQLite database with migration and pre-seeded users.
+4. Logging support for API requests and errors.
 
 ## Prerequisites
 - Go (>=1.18)
-- SQLite
+- Gin (>=v1.10.0)
+- SQLite (>=v1.5.7)
 
 ## Installation
 
@@ -59,7 +66,11 @@ GET /health
 **Response:**
 ```json
 {
-  "version": "1.0.0"
+  "status": "ok",
+  "uptime": "2025-03-25T09:15:00Z",
+  "version": "2.3.0",
+  "hostname": "prod-server-42",
+  "timestamp": "2025-03-25T10:30:22Z"
 }
 ```
 
