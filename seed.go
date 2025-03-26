@@ -1,6 +1,8 @@
 package main
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+)
 
 func SeedUsers(db *gorm.DB) {
 	users := []User{
@@ -26,5 +28,8 @@ func SeedUsers(db *gorm.DB) {
 		{Uuid: "s9t0u1v2-w3x4-5678-y9z0-a1b2c3d4e5f6", Name: "Michael Walker", Email: "michael.walker@example.com"},
 		{Uuid: "t0u1v2w3-x4y5-6789-z0a1-b2c3d4e5f6g7", Name: "Abigail Young", Email: "abigail.young@example.com"},
 	}
-	db.Create(&users)
+	if result := db.Create(&users); result.Error != nil {
+		Logger.Fatal("Failed to seed users:", result.Error)
+	}
+	Logger.Info("Successfully seeded users")
 }

@@ -1,24 +1,26 @@
 package main
 
 import (
-    "gorm.io/driver/sqlite"
-    "gorm.io/gorm"
+	"gitlab.com/aminelch/go-user-generator/models"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
 func InitDatabase() {
-    var err error
-    DB, err = gorm.Open(sqlite.Open("data.db"), &gorm.Config{})
-    if err != nil {
-        Logger.Fatal("Failed to connect to the database:", err)
-    }
+	var err error
+	DB, err = gorm.Open(sqlite.Open("data.db"), &gorm.Config{})
+	DB = DB.Debug()
 
-    err = DB.AutoMigrate(&User{})
-    if err != nil {
-        Logger.Fatal("Database migration failed:", err)
-    }
+	if err != nil {
+		Logger.Fatal("Failed to connect to the database:", err)
+	}
 
-    Logger.Info("Database migrated successfully!")
-    SeedUsers(DB)
+	if err := DB.AutoMigrate(&models.User{}); err != nil {
+		Logger.Fatal("Migration failed:", err)
+	}
+
+	Logger.Info("Database migrated successfully!")
+	SeedUsers(DB)
 }
