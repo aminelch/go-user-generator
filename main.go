@@ -2,30 +2,26 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"gitlab.com/aminelch/go-user-generator/handlers"
 	"os"
 )
 
 func main() {
 	InitLogger()
-	Logger.Info("Starting API...")
-
 	InitDatabase()
 
+	handlers.InitHandlers(Logger, DB)
 	r := gin.Default()
 
-	r.GET("/", HomepageHandler)
-	r.GET("/health", HealthHandler)
-	r.GET("/generate", GenerateHandler)
+	r.GET("/", handlers.HomepageHandler)
+	r.GET("/health", handlers.HealthHandler)
+	r.GET("/generate", handlers.GenerateHandler)
 
-	port := os.Getenv("APP_PORT")
-	if port == "" {
-		port = "8080"
-	}
+	port := handlers.GetEnv("APP_PORT", "8080")
 	Logger.Info("Server running on port " + port)
 
-	err := r.Run(":" + port)
-	if err != nil {
-		Logger.Fatalf("Failed to start server")
+	if err := r.Run(":" + port); err != nil {
+		Logger.Fatal("Failed to start server: ", err)
 		os.Exit(2)
 	}
 }
