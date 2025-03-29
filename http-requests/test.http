@@ -1,0 +1,8 @@
+### GET request to home route
+GET  {{host}}/
+
+### GET request to health route
+GET  {{host}}/health
+
+### GET request to generate route
+GET  {{host}}/generate
