@@ -15,7 +15,7 @@ lint:
   stage: lint
   image: golangci/golangci-lint:v1.23.6-alpine
   script:
-    - golangci-lint run *.go --timeout=5m
+    - golangci-lint run ./... --timeout=5m
   allow_failure: true
 
 units-tests:
@@ -42,6 +42,12 @@ build:
   needs:
     - lint
 
+security-scan:
+  stage: quality-gate
+  image: quay.io/securego/gosec:latest
+  script:
+    - gosec ./...
+
 sonarcloud-check:
   stage: quality-gate
   image:
@@ -63,8 +69,7 @@ deploy-on-render:
   script:
     - echo "Launch Render deployment..."
     - curl https://api.render.com/deploy/$RENDER_SERVICE_NAME?key=$RUNDER_SERVICE_KEY
-  needs:
-    - build
+  needs: ["build", "sonarcloud-check"]
   when: manual
   only:
     - main
