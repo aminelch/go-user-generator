@@ -1,12 +1,15 @@
 stages:
-- lint
-- test
-- build
-- deploy
+  - lint
+  - test
+  - build
+  - quality-gate
+  - deploy
 
 variables:
   GO_VERSION: "1.23.4"
   CGO_ENABLED: "1"
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+  GIT_DEPTH: "0"
 
 lint:
   stage: lint
@@ -15,16 +18,16 @@ lint:
     - golangci-lint run *.go --timeout=5m
   allow_failure: true
 
-test:
+units-tests:
   stage: test
   image: "golang:$GO_VERSION"
   script:
     - go mod tidy
     - go test ./... -coverprofile=coverage.out
   artifacts:
-    paths: 
+    paths:
       - coverage.out
-  needs: 
+  needs:
     - lint
 
 build:
@@ -36,8 +39,23 @@ build:
   artifacts:
     paths:
       - api
-  needs: 
+  needs:
     - lint
+
+sonarcloud-check:
+  stage: quality-gate
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  only:
+    - merge_requests
+    - main
 
 deploy-on-render:
   stage: deploy
@@ -45,7 +63,7 @@ deploy-on-render:
   script:
     - echo "Launch Render deployment..."
     - curl https://api.render.com/deploy/$RENDER_SERVICE_NAME?key=$RUNDER_SERVICE_KEY
-  needs: 
+  needs:
     - build
   when: manual
   only:
