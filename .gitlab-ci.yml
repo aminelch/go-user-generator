@@ -1,4 +1,5 @@
 stages:
+  - authentication
   - lint
   - test
   - build
@@ -11,23 +12,35 @@ variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
   GIT_DEPTH: "0"
 
+docker-login:
+  stage: authentication
+  image: docker:latest
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  services:
+    - docker:dind
+
 lint:
   stage: lint
   image: golangci/golangci-lint:v1.23.6-alpine
   script:
+    - go mod tidy
     - golangci-lint run ./... --timeout=5m
   allow_failure: true
+  needs:
+    - docker-login
 
 units-tests:
   stage: test
   image: "golang:$GO_VERSION"
   script:
     - go mod tidy
-    - go test ./... -coverprofile=coverage.out
-  artifacts:
-    paths:
-      - coverage.out
+    - go test ./...
+#  artifacts:
+#    paths:
+#      - coverage.out
   needs:
+    - docker-login
     - lint
 
 build:
@@ -40,13 +53,23 @@ build:
     paths:
       - api
   needs:
+    - docker-login
     - lint
 
 security-scan:
   stage: quality-gate
-  image: quay.io/securego/gosec:latest
+  image: "golang:$GO_VERSION"
   script:
-    - gosec ./...
+    - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.22.2
+    - $(go env GOPATH)/bin/gosec -fmt=sonarqube -out=gosec-report.json -stdout ./...
+  artifacts:
+    when: always
+    paths:
+      - gosec-report.json
+    expire_in: 1 day
+  allow_failure: true
+  needs:
+    - docker-login
 
 sonarcloud-check:
   stage: quality-gate
@@ -62,6 +85,9 @@ sonarcloud-check:
   only:
     - merge_requests
     - main
+  needs:
+    - docker-login
+    - security-scan
 
 deploy-on-render:
   stage: deploy
@@ -69,7 +95,9 @@ deploy-on-render:
   script:
     - echo "Launch Render deployment..."
     - curl https://api.render.com/deploy/$RENDER_SERVICE_NAME?key=$RUNDER_SERVICE_KEY
-  needs: ["build", "sonarcloud-check"]
+  needs:
+    - build
+    - sonarcloud-check
   when: manual
   only:
     - main
