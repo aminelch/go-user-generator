@@ -52,7 +52,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - sonar-scanner
+    - sonar-scanner -Dproject.settings=sonar-project.properties
   only:
     - merge_requests
     - main
