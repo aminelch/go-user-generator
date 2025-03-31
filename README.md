@@ -55,7 +55,7 @@ Run the API:
 make serve
 ```
 
-The API will be available at (http://localhost:8080)[http://localhost:8080].
+The API will be available at [http://localhost:8080](http://localhost:8080).
 
 ## API Endpoints
 
@@ -83,7 +83,8 @@ GET /generate
 {
   "id": 3,
   "name": "John Doe",
-  "email": "john.doe@example.com"
+  "email": "john.doe@example.com",
+  "uuid": "a7983f8d-8d77-4bda-bd45-819d7e19290c"
 }
 ```
 
