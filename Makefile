@@ -61,4 +61,4 @@ tag-and-push: tag ## Make a new tag and push it
 	@printf "➜ Signing tag\n"
 	git tag --sign 'v$(TAG)' -m'Version $(TAG)'
 	@printf "➜ Push tag to remote \n"
-	push git push origin 'v$(TAG)'
+	git push origin 'v$(TAG)'
