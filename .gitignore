@@ -1,6 +1,6 @@
 .env.local
 app.logcoverage.out
 .env
-!app.log
-!data.db
-!out/api
+app.log
+data.db
+out/api
