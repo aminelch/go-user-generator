@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gitlab.com/aminelch/go-user-generator/models"
 	"math"
-	"math/rand"
+	"math/rand/v2"
 	"net/http"
 	"os"
 	"time"
@@ -72,7 +72,7 @@ func GenerateHandler(c *gin.Context) {
 		return
 	}
 
-	randomUser := users[rand.Intn(len(users))]
+	randomUser := users[rand.IntN(len(users))]
 
 	Logger.Infof("Selected user: %s %s (%s)", randomUser.Uuid, randomUser.Name, randomUser.Email)
 	c.JSON(http.StatusOK, randomUser)

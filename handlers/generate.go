@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"gitlab.com/aminelch/go-user-generator/models"
-	"math/rand"
+	"math/rand/v2"
 	"net/http"
 )
 
@@ -24,7 +24,7 @@ func GenerateHandler(c *gin.Context) {
 		return
 	}
 
-	randomUser := users[rand.Intn(len(users))]
+	randomUser := users[rand.IntN(len(users))]
 	hc.Logger.WithFields(logrus.Fields{
 		"uuid":  randomUser.Uuid,
 		"name":  randomUser.Name,
