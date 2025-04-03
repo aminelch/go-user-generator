@@ -11,7 +11,7 @@
 set -e
 
 if ! command -v date >/dev/null 2>&1; then
-  echo "It looks like Date is not installed on your system. Please install it first by running 'apt-get install curl'
+  echo "It looks like Date is not installed on your system. Please install it first by running 'apt-get install coreutils'
   and try again to continue the installation."
   exit 1
 fi
