@@ -1,5 +1,7 @@
 # go-user-generator API
 
+[![Latest Release](https://gitlab.com/aminelch/go-user-generator/-/badges/release.svg)](https://gitlab.com/aminelch/go-user-generator/-/releases)
+[![pipeline status](https://gitlab.com/aminelch/go-user-generator/badges/main/pipeline.svg)](https://gitlab.com/aminelch/go-user-generator/-/commits/main)
 ![License](https://img.shields.io/gitlab/license/aminelch/go-user-generator?color=lightblue&style=for-the-badge)
 ![GO version](https://img.shields.io/badge/version-1.23.4-blue?logo=go&style=for-the-badge)
 ![Build Status](https://img.shields.io/gitlab/pipeline/aminelch/go-user-generator/main?label=build&style=for-the-badge)

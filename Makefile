@@ -32,6 +32,7 @@ build-env: ## Generate .env from env.dist (if it doesn't exist)
 	else \
 		printf "${GREEN}$(ENV_FILE)${NC} already exists. Run 'make ${GREEN} force-build-env'${NC} to overwrite.\n"; \
 	fi
+	@chmod 0600 "$(ENV_FILE)"; \
 
 .PHONY: force-build-env
 force-build-env: ## Force regenerate .env file

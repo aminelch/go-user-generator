@@ -2,14 +2,14 @@ stages:
   - authentication
   - lint
   - test
-  - build
   - quality-gate
+  - build
   - deploy
 
 variables:
   GO_VERSION: "1.23.4"
   CGO_ENABLED: "1"
-  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+#  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
   GIT_DEPTH: "0"
 
 docker-login:
@@ -55,6 +55,7 @@ build:
   needs:
     - docker-login
     - lint
+    - security-scan
 
 security-scan:
   stage: quality-gate
@@ -70,6 +71,7 @@ security-scan:
   allow_failure: true
   needs:
     - docker-login
+    - lint
 
 sonarcloud-check:
   stage: quality-gate
