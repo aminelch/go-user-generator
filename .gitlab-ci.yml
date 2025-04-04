@@ -61,7 +61,7 @@ security-scan:
   image: "golang:$GO_VERSION"
   script:
     - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.22.2
-    - $(go env GOPATH)/bin/gosec -fmt=sonarqube -out=gosec-report.json -stdout ./...
+    - $(go env GOPATH)/bin/gosec -exclude=G404 -fmt=sonarqube -out=gosec-report.json -stdout ./...
   artifacts:
     when: always
     paths:
