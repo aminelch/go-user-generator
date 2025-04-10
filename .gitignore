@@ -4,3 +4,4 @@ app.logcoverage.out
 app.log
 data.db
 out/api
+http-requests/newman-*.xml

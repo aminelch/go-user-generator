@@ -1,0 +1,15 @@
+{
+	"id": "3a2e33f7-f73f-4bcc-b6d1-4be03f0f2daf",
+	"name": "dev",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-04-04T19:02:31.119Z",
+	"_postman_exported_using": "Postman/11.39.5"
+}

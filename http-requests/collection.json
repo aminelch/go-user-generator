@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "81d24ab1-18b6-467e-9cca-b7d45b7c93d0",
+		"name": "go-user-generator-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43768653"
+	},
+	"item": [
+		{
+			"name": "homepage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/generate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"generate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
