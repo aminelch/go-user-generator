@@ -60,10 +60,11 @@ build:
 functional-tests:
   stage: functional-tests
   image: postman/newman:ubuntu
+  entrypoint: [""]
   script:
     - apt-get update && apt-get install -y curl bash
-    - ls -lth ; pwd; which curl
-    - chmod +x api && bash -x api & 
+    - ls -lth ; pwd; which curl; newman -v 
+    - chmod +x api && bash -x api &
     - until curl --silent --fail http://localhost:8080/health; do
       echo "Waiting for the application to start...";
       sleep 5;
